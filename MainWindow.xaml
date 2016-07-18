@@ -1,0 +1,23 @@
+﻿<Window x:Class="TestScrollBarHideThumb.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+        
+        <StackPanel>
+            <CheckBox Name="chkIsEnabled" IsChecked="True">IsEnabled</CheckBox>
+            <CheckBox Name="chkSameMinMax" IsChecked="False" Checked="chkSameMinMax_Checked" Unchecked="chkSameMinMax_Unchecked">Same Minimum &amp; Maximum</CheckBox>
+        </StackPanel>
+        
+        <ScrollBar Name="vscrlScroll" Grid.Column="1" Orientation="Vertical" IsEnabled="{Binding ElementName=chkIsEnabled, Path=IsChecked}" Minimum="0" Maximum="10" />
+        <ScrollBar Name="hscrlScroll" Grid.Row="1" Orientation="Horizontal" IsEnabled="{Binding ElementName=chkIsEnabled, Path=IsChecked}" Minimum="0" Maximum="10" />
+    </Grid>
+</Window>
